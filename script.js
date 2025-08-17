@@ -199,16 +199,37 @@ function typeWriter(element, text, speed = 100) {
 }
 
 // Initialize typing effect when page loads
-document.addEventListener('DOMContentLoaded', () => {
-    const heroTitle = document.querySelector('.hero-title');
-    if (heroTitle) {
-        const originalText = heroTitle.innerHTML;
-        // Delay typing effect to start after page load
-        setTimeout(() => {
-            typeWriter(heroTitle, originalText, 80);
-        }, 1000);
+function typeWriter(element, html, speed = 100) {
+    let i = 0;
+    let tag = '';
+    let isTag = false;
+
+    element.innerHTML = '';
+
+    function type() {
+        const char = html[i];
+
+        if (char === '<') isTag = true;
+        if (char === '>') isTag = false;
+
+        tag += char;
+        i++;
+
+        if (!isTag && char === '>') {
+            element.innerHTML += tag;
+            tag = '';
+        } else if (!isTag) {
+            element.innerHTML += char;
+        }
+
+        if (i < html.length) {
+            setTimeout(type, speed);
+        }
     }
-});
+
+    type();
+}
+
 
 // Parallax effect for hero section
 window.addEventListener('scroll', () => {
