@@ -343,6 +343,218 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 15px 30px rgba(102, 126, 234, 0.2);
 }
 
+/* CV Section */
+.cv {
+    padding: 5rem 0;
+    background: #f7fafc;
+}
+
+.cv-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.cv-info h3 {
+    font-size: 1.8rem;
+    color: #2d3748;
+    margin-bottom: 1rem;
+}
+
+.cv-info p {
+    font-size: 1.1rem;
+    color: #4a5568;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+}
+
+.cv-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.cv-highlight {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.cv-highlight:hover {
+    transform: translateY(-3px);
+}
+
+.cv-highlight i {
+    font-size: 1.5rem;
+    color: #667eea;
+    width: 30px;
+    margin-top: 0.25rem;
+}
+
+.cv-highlight h4 {
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.cv-highlight p {
+    color: #4a5568;
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.cv-download {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.cv-download .btn {
+    margin-bottom: 1rem;
+}
+
+.cv-download .btn i {
+    margin-right: 0.5rem;
+}
+
+.cv-note {
+    color: #718096;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.cv-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cv-placeholder {
+    width: 250px;
+    height: 300px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 3rem;
+    box-shadow: 0 15px 30px rgba(102, 126, 234, 0.2);
+}
+
+.cv-placeholder p {
+    font-size: 1rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+/* Volunteering Section */
+.volunteering {
+    padding: 5rem 0;
+    background: white;
+}
+
+.volunteering-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.volunteering-intro {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.volunteering-intro h3 {
+    font-size: 1.8rem;
+    color: #2d3748;
+    margin-bottom: 1rem;
+}
+
+.volunteering-intro p {
+    font-size: 1.1rem;
+    color: #4a5568;
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.volunteering-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.volunteering-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e2e8f0;
+}
+
+.volunteering-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.volunteering-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 1.5rem;
+    color: white;
+    font-size: 2rem;
+}
+
+.volunteering-card h4 {
+    font-size: 1.3rem;
+    color: #2d3748;
+    margin-bottom: 1rem;
+}
+
+.volunteering-card p {
+    color: #4a5568;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.volunteering-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #718096;
+}
+
+.volunteering-details span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.volunteering-details i {
+    color: #667eea;
+    width: 16px;
+}
+
 /* Skills Section */
 .skills {
     padding: 5rem 0;
@@ -634,6 +846,30 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .about-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .cv-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .cv-image {
+        order: -1; /* Move image to top on smaller screens */
+    }
+
+    .cv-placeholder {
+        margin-bottom: 2rem;
+    }
+
+    .volunteering-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .volunteering-grid {
         grid-template-columns: 1fr;
     }
 
