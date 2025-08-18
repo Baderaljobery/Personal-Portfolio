@@ -1,17 +1,20 @@
-// Mobile Navigation Toggle
+// Mobile Navigation Toggle (guard for pages without navbar)
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
-
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
+if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+}
 
 // Close mobile menu when clicking on a link
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
+        if (hamburger && navMenu) {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }
     });
 });
 
@@ -32,6 +35,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Navbar background change on scroll
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
     if (window.scrollY > 100) {
         navbar.style.background = 'rgba(255, 255, 255, 0.98)';
         navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
@@ -62,6 +66,179 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 });
+
+// ---------- Dynamic Rendering: Skills, Projects, Volunteering ----------
+function renderSkills() {
+    const skillsGrid = document.getElementById('skillsGrid');
+    if (!skillsGrid) return;
+
+    const skillsData = [
+        {
+            category: 'Frontend',
+            items: [
+                { iconClass: 'fab fa-html5', name: 'HTML5' },
+                { iconClass: 'fab fa-css3-alt', name: 'CSS3' },
+                { iconClass: 'fab fa-js', name: 'JavaScript' },
+                { iconClass: 'fab fa-react', name: 'React' }
+            ]
+        },
+        {
+            category: 'Tools & Others',
+            items: [
+                { iconClass: 'fab fa-git-alt', name: 'Git' },
+                { iconClass: 'fas fa-palette', name: 'Figma' },
+                { iconClass: 'fas fa-mobile-alt', name: 'Responsive Design' },
+                { iconClass: 'fas fa-code-branch', name: 'Version Control' }
+            ]
+        }
+    ];
+
+    skillsGrid.innerHTML = skillsData.map(group => `
+        <div class="skill-category">
+            <h3>${group.category}</h3>
+            <div class="skill-items">
+                ${group.items.map(item => `
+                    <div class="skill-item modern-skill">
+                        <i class="${item.iconClass}"></i>
+                        <span>${item.name}</span>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `).join('');
+}
+
+function renderProjects() {
+    const projectsGrid = document.getElementById('projectsGrid');
+    if (!projectsGrid) return;
+
+    const projectsData = [
+        {
+            title: 'E-Commerce Website',
+            description: 'A responsive e-commerce platform with product filtering, cart, and mobile-first design.',
+            tech: ['HTML', 'CSS', 'JavaScript'],
+            iconClass: 'fas fa-laptop-code',
+            links: { demo: '#', source: '#' }
+        },
+        {
+            title: 'Weather App',
+            description: 'Weather conditions and forecasts using a public API in a clean interface.',
+            tech: ['HTML', 'CSS', 'JavaScript'],
+            iconClass: 'fas fa-mobile-alt',
+            links: { demo: '#', source: '#' }
+        },
+        {
+            title: 'Task Manager',
+            description: 'Drag-and-drop tasks with local storage and responsive design.',
+            tech: ['HTML', 'CSS', 'JavaScript'],
+            iconClass: 'fas fa-tasks',
+            links: { demo: '#', source: '#' }
+        }
+    ];
+
+    projectsGrid.innerHTML = projectsData.map(p => `
+        <div class="project-card">
+            <div class="project-image">
+                <div class="project-placeholder"><i class="${p.iconClass}"></i></div>
+            </div>
+            <div class="project-content">
+                <h3>${p.title}</h3>
+                <p>${p.description}</p>
+                <div class="project-tech">
+                    ${p.tech.map(t => `<span>${t}</span>`).join('')}
+                </div>
+                <div class="project-links">
+                    <a href="${p.links.demo}" class="btn btn-small">Live Demo</a>
+                    <a href="${p.links.source}" class="btn btn-small btn-outline">Source Code</a>
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+
+function renderVolunteering() {
+    const volunteeringGrid = document.getElementById('volunteeringGrid');
+    if (!volunteeringGrid) return;
+
+    const volunteeringData = [
+        {
+            title: 'Code Mentorship',
+            description: 'Mentor youth in programming fundamentals and their first projects.',
+            period: '2022 - Present',
+            time: '5+ hours/week',
+            iconClass: 'fas fa-hands-helping'
+        },
+        {
+            title: 'Environmental Conservation',
+            description: 'Participate in cleanups and tree planting to promote sustainability.',
+            period: '2021 - Present',
+            time: 'Monthly events',
+            iconClass: 'fas fa-tree'
+        },
+        {
+            title: 'Literacy Programs',
+            description: 'Support adult literacy for improved career opportunities.',
+            period: '2023 - Present',
+            time: '3+ hours/week',
+            iconClass: 'fas fa-book-reader'
+        }
+    ];
+
+    volunteeringGrid.innerHTML = volunteeringData.map(v => `
+        <div class="project-card">
+            <div class="project-image">
+                <div class="project-placeholder"><i class="${v.iconClass}"></i></div>
+            </div>
+            <div class="project-content">
+                <h3>${v.title}</h3>
+                <p>${v.description}</p>
+                <div class="project-tech">
+                    <span><i class="fas fa-calendar"></i> ${v.period}</span>
+                    <span><i class="fas fa-clock"></i> ${v.time}</span>
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+
+function initializeDynamicSections() {
+    renderSkills();
+    renderProjects();
+    renderVolunteering();
+
+    // Re-initialize skill animations after rendering
+    const skillItems = document.querySelectorAll('.skill-item');
+    const skillObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }, index * 100);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    skillItems.forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(20px)';
+        item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        skillObserver.observe(item);
+    });
+
+    // Re-bind project hover effects to newly created cards
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-15px) scale(1.02)';
+        });
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+}
+
+document.addEventListener('DOMContentLoaded', initializeDynamicSections);
 
 // Contact form handling
 const contactForm = document.getElementById('contactForm');
@@ -241,37 +418,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Skills animation on scroll
-const skillItems = document.querySelectorAll('.skill-item');
-const skillObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-            setTimeout(() => {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }, index * 100);
-        }
-    });
-}, { threshold: 0.5 });
-
-skillItems.forEach(item => {
-    item.style.opacity = '0';
-    item.style.transform = 'translateY(20px)';
-    item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    skillObserver.observe(item);
-});
-
-// Project cards hover effect enhancement
-const projectCards = document.querySelectorAll('.project-card');
-projectCards.forEach(card => {
-    card.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-15px) scale(1.02)';
-    });
-    
-    card.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0) scale(1)';
-    });
-});
+// (Replaced by initializeDynamicSections after dynamic rendering)
 
 // Active navigation link highlighting
 function updateActiveNavLink() {
