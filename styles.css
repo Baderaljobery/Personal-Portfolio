@@ -576,7 +576,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .skill-items {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
 }
 
@@ -585,15 +585,16 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     gap: 1rem;
     padding: 1rem;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: linear-gradient(135deg, #ffffff 0%, #f7fafc 100%);
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
 .skill-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.15);
+    background: linear-gradient(135deg, #edf2f7 0%, #ffffff 100%);
 }
 
 .skill-item i {
@@ -629,7 +630,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .project-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.18);
 }
 
 .project-image {
@@ -643,6 +644,12 @@ h1, h2, h3, h4, h5, h6 {
 .project-placeholder {
     color: #667eea;
     font-size: 3rem;
+}
+
+/* Techy gradient chips for volunteering meta inside project-tech */
+.project-tech span i {
+    color: #667eea;
+    margin-right: 6px;
 }
 
 .project-content {
@@ -676,6 +683,13 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.9rem;
     font-weight: 500;
 }
+
+/* See More button spacing */
+.see-more {
+    margin-top: 0.75rem;
+}
+
+/* Volunteering section uses project card grid for consistency */
 
 .project-links {
     display: flex;
