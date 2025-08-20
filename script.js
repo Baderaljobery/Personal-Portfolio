@@ -83,15 +83,20 @@ function renderSkills() {
                 { iconClass: 'fas fa-comments', name: 'Communication'},
                 { iconClass: 'fas fa-puzzle-piece', name: 'Problem solving'},
                 { iconClass: 'fas fa-user-friends', name: 'Team player'},
+                { iconClass: 'fas fa-brain', name: 'Social intelligence'}
             ]
         },
         {
-            category: 'Tools & Others',
+            category: 'Technical Skills',
             items: [
-                { iconClass: 'fab fa-git-alt', name: 'Git' },
-                { iconClass: 'fas fa-palette', name: 'Figma' },
-                { iconClass: 'fas fa-mobile-alt', name: 'Responsive Design' },
-                { iconClass: 'fas fa-code-branch', name: 'Version Control' }
+                { iconClass: 'fas fa-code', name: 'programming languages' },
+                { iconClass: 'fas fa-cogs', name: 'machine learning' },
+                { iconClass: 'fas fa-chart-line', name: 'Deep learning' },
+                { iconClass: 'fas fa-robot', name: 'AI' },
+                { iconClass: 'fas fa-eye', name: 'Computer vision' },
+                { iconClass: 'fas fa-chart-bar', name: 'Data analysis' },
+                { iconClass: 'fas fa-comments', name: 'NLP' },
+                { iconClass: 'fas fa-project-diagram', name: 'Neural networks' }
             ]
         }
     ];
@@ -117,24 +122,24 @@ function renderProjects() {
 
     const projectsData = [
         {
-            title: 'E-Commerce Website',
-            description: 'A responsive e-commerce platform with product filtering, cart, and mobile-first design.',
-            tech: ['HTML', 'CSS', 'JavaScript'],
+            title: 'Graduation project',
+            description: ' Classifing Harmful Brain Activity.Developed Machine Learning and Deep Learning models to classify harmful brain activities using EEG data.',
+            tech: ['TensorFlow', 'Python', 'Scikit-learn', 'NumPy' , 'panda'],
             iconClass: 'fas fa-laptop-code',
             links: { demo: '#', source: '#' }
         },
         {
-            title: 'Weather App',
-            description: 'Weather conditions and forecasts using a public API in a clean interface.',
-            tech: ['HTML', 'CSS', 'JavaScript'],
-            iconClass: 'fas fa-mobile-alt',
+            title: 'Master of Ceremonie',
+            description: 'I had the honor of hosting a distinguished event in the presence of His Excellency the Minister of Communications and Information Technology, Eng. Abdullah bin Amer Al-Sawaha. The event was an exceptional and successful occasion that reflected professionalism and excellence.',
+            tech: ['Public speaking', 'Social intelligence'],
+            iconClass: 'fas fa-microphone',
             links: { demo: '#', source: '#' }
         },
         {
-            title: 'Task Manager',
-            description: 'Drag-and-drop tasks with local storage and responsive design.',
-            tech: ['HTML', 'CSS', 'JavaScript'],
-            iconClass: 'fas fa-tasks',
+            title: 'The biggest event',
+            description: 'Launched a pioneering initiative at Majmaah University — the largest student-led event in the university history — by organizing a competitive Debating League, fostering critical thinking, public speaking, and intellectual engagement across campus.',
+            tech: ['Leadership', 'Team player', 'Communication'],
+            iconClass: 'fas fa-lightbulb',
             links: { demo: '#', source: '#' }
         }
     ];
