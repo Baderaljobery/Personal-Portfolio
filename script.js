@@ -74,12 +74,15 @@ function renderSkills() {
 
     const skillsData = [
         {
-            category: 'Frontend',
+            category: 'Soft skills',
             items: [
-                { iconClass: 'fab fa-html5', name: 'HTML5' },
-                { iconClass: 'fab fa-css3-alt', name: 'CSS3' },
-                { iconClass: 'fab fa-js', name: 'JavaScript' },
-                { iconClass: 'fab fa-react', name: 'React' }
+                { iconClass: 'fas fa-comment-dots', name: 'Public speaking'},
+                { iconClass: 'fas fa-search', name: 'Attention to details'},
+                { iconClass: 'fas fa-bolt', name: 'Quick learner'},
+                { iconClass: 'fas fa-users', name: 'Leadership'},
+                { iconClass: 'fas fa-comments', name: 'Communication'},
+                { iconClass: 'fas fa-puzzle-piece', name: 'Problem solving'},
+                { iconClass: 'fas fa-user-friends', name: 'Team player'},
             ]
         },
         {
