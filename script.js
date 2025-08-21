@@ -170,25 +170,30 @@ function renderVolunteering() {
 
     const volunteeringData = [
         {
-            title: 'Code Mentorship',
-            description: 'Mentor youth in programming fundamentals and their first projects.',
-            period: '2022 - Present',
-            time: '5+ hours/week',
-            iconClass: 'fas fa-hands-helping'
+            title: 'Founder and Leader of the Majmaah University Toastmasters',
+            description: ' Founded Toastmasters at my university to develop skilled individuals, exceptional speakers, and strong leaders, with a focus on leadership development.',
+            period: '2024 - Present',
+            time: 'Full Time',
+            iconClass: 'fas fa-users'
         },
         {
-            title: 'Environmental Conservation',
-            description: 'Participate in cleanups and tree planting to promote sustainability.',
-            period: '2021 - Present',
-            time: 'Monthly events',
-            iconClass: 'fas fa-tree'
+            title: 'Leader of the Media Club',
+            description: 'I built the Media Club from scratch, introduced innovative ideas, attracted many students, and helped establish its presence at the university.',
+            period: '2021 - 2024',
+            time: 'Weekly events',
+            iconClass: 'fas fa-broadcast-tower'
         },
         {
-            title: 'Literacy Programs',
-            description: 'Support adult literacy for improved career opportunities.',
-            period: '2023 - Present',
-            time: '3+ hours/week',
-            iconClass: 'fas fa-book-reader'
+            title: 'How do you choose your university major?',
+            description: 'An annual course that I offer to students who are expected to graduate from high school. It was developed using extensive and precise experience. It is a community service provided by me.',
+            time: 'Annually',
+            iconClass: 'fas fa-chalkboard-teacher'
+        },
+        {
+            title: 'How do you choose your university major?',
+            description: 'An annual course that I offer to students who are expected to graduate from high school. It was developed using extensive and precise experience. It is a community service provided by me.',
+            time: 'Annually',
+            iconClass: 'fas fa-chalkboard-teacher'
         }
     ];
 
